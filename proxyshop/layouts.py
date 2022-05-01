@@ -30,7 +30,7 @@ class BasicLand:
         # Optional vars
         if artist: self.artist = artist
         else: self.artist = "Unknown"
-        if set_code: self.set = set_code.upper()
+        if set_code: self.set_code = self.set = set_code.upper()
         else: self.set = "MTG"
         if len(self.set) > 3: self.set = self.set[1:]
 
@@ -39,7 +39,6 @@ class BasicLand:
             if self.set in con.set_symbols: self.symbol = con.set_symbols[self.set]
             else: self.symbol = cfg.symbol_char
         else: self.symbol = cfg.symbol_char
-
 
 class BaseLayout:
     """
@@ -70,7 +69,7 @@ class BaseLayout:
         self.color_identity = self.scryfall['color_identity']
 
         # Prepare set code
-        self.set = self.scryfall['set'].upper()
+        self.set_code = self.set = self.scryfall['set'].upper()
         if len(self.set) > 3: self.set = self.set[1:]
 
         # Prepare rarity letter + collector number
